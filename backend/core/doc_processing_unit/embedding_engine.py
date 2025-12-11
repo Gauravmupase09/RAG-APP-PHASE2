@@ -4,8 +4,8 @@ from typing import List, Dict
 
 from backend.utils.logger import logger
 from backend.utils.config import PROCESSED_DIR
-from backend.core.model_manager import get_embedding_model
-from backend.core.qdrant_manager import upsert_embedding
+from backend.core.doc_processing_unit.model_manager import get_embedding_model
+from backend.core.doc_processing_unit.qdrant_manager import upsert_embedding
 
 def embed_chunks(session_id: str, model=None) -> List[Dict]:
     """

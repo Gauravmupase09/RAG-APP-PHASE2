@@ -1,20 +1,4 @@
-# import sys, os
-# sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
-
-# from backend.core.rag.llm_engine import generate_llm_response
-
-# query = "Summarize how COVID-19 affected students emotionally and academically."
-# context = [
-#     "The pandemic disrupted in-person learning and increased feelings of isolation among students.",
-#     "Many students reported higher stress and lower academic performance due to online transition."
-# ]
-
-# print("🔍 Running Gemini 2.5 Flash test...\n")
-# res = generate_llm_response(query=query, context_chunks=context)
-# print("✅ Model:", res["model"])
-# print("\n💬 Response:\n", res["response"])
-
-# test/test_llm_stream.py
+# test/test_llm_stream.py(this needed few changes as we have change the llm_engine.py for our aggentic approach)
 import sys, os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 

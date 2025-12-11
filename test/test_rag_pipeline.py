@@ -1,11 +1,11 @@
-# tests/test_rag_pipeline.py
+# tests/test_rag_pipeline.py(need updates for the updated agentic approach)
 
 import sys, os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
 from fastapi import FastAPI
-from backend.core.model_manager import get_embedding_model
-from backend.core.qdrant_manager import client as qdrant_client
+from backend.core.doc_processing_unit.model_manager import get_embedding_model
+from backend.core.doc_processing_unit.qdrant_manager import client as qdrant_client
 from backend.core.rag.rag_pipeline import run_rag_pipeline
 from backend.utils.logger import logger
 

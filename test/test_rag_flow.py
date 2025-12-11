@@ -1,4 +1,4 @@
-# tests/test_rag_flow.py
+# tests/test_rag_flow.py(need changes for the updated agentic approach)
 import sys, os
 from pathlib import Path
 
@@ -6,8 +6,8 @@ from pathlib import Path
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
 from fastapi import FastAPI
-from backend.core.model_manager import get_embedding_model
-from backend.core.qdrant_manager import client as qdrant_client
+from backend.core.doc_processing_unit.model_manager import get_embedding_model
+from backend.core.doc_processing_unit.qdrant_manager import client as qdrant_client
 from backend.core.rag.retriever import retrieve_top_k_chunks
 from backend.core.rag.citation_handler import prepare_context_and_citations, format_citations_for_display
 from backend.core.rag.llm_engine import generate_llm_response

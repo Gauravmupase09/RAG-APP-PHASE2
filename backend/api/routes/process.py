@@ -7,10 +7,10 @@ from backend.utils.config import PROCESSED_DIR
 from backend.utils.file_manager import session_exists
 
 # ✅ Core pipeline imports
-from backend.core.text_extractor import extract_all_files
-from backend.core.text_cleaner import clean_all_raw_files
-from backend.core.chunking import chunk_session_documents
-from backend.core.embedding_engine import embed_chunks
+from backend.core.doc_processing_unit.text_extractor import extract_all_files
+from backend.core.doc_processing_unit.text_cleaner import clean_all_raw_files
+from backend.core.doc_processing_unit.chunking import chunk_session_documents
+from backend.core.doc_processing_unit.embedding_engine import embed_chunks
 
 router = APIRouter()
 

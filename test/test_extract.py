@@ -4,7 +4,7 @@ from pathlib import Path
 # Add project root to PYTHONPATH
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
-from backend.core.text_extractor import extract_all_files
+from backend.core.doc_processing_unit.text_extractor import extract_all_files
 from backend.utils.config import PROCESSED_DIR
 
 # ⚠️ Change session ID to your test session folder

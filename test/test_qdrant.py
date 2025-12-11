@@ -5,7 +5,7 @@ import sys
 # Add backend path
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
-from backend.core.qdrant_manager import upsert_embedding, create_collection_if_not_exists, get_collection_name
+from backend.core.doc_processing_unit.qdrant_manager import upsert_embedding, create_collection_if_not_exists, get_collection_name
 from backend.utils.config import PROCESSED_DIR
 from backend.utils.logger import logger
 

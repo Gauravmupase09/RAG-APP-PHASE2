@@ -45,10 +45,6 @@ with col1:
             st.warning("No active session to reset.")
 
 
-with col2:
-    st.info(f"Backend URL: {BACKEND_URL}")
-
-
 st.markdown("---")
 
 

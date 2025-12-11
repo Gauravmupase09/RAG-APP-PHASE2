@@ -1,7 +1,7 @@
 import sys, os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
-from backend.core.model_manager import get_embedding_model
+from backend.core.doc_processing_unit.model_manager import get_embedding_model
 
 print("🔥 Testing model loading...\n")
 

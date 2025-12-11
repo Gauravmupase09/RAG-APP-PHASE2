@@ -1,28 +1,3 @@
-# import os, sys, json
-# sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
-
-# from backend.core.embedding_engine import embed_chunks
-# from backend.utils.config import PROCESSED_DIR
-
-# session_id = "28735376-65a1-4808-82a6-556e58df9f06"
-
-# print(f"🔥 Running embedding test for session: {session_id}\n")
-
-# emb = embed_chunks(session_id)
-
-# print(f"\n✅ Total embeddings generated: {len(emb)}")
-
-# # show one example
-# print("\n📌 Sample embedding metadata:")
-# print(json.dumps(emb[0]["metadata"], indent=2))
-
-# print("\n📁 Checking folder structure:")
-# for root, dirs, files in os.walk(PROCESSED_DIR / session_id):
-#     if "embeddings" in root:
-#         print(root)
-#         for f in files[:3]:
-#             print("  -", f)
-
 import os
 import sys
 import json
@@ -31,9 +6,9 @@ from pathlib import Path
 # Add project root
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
-from backend.core.embedding_engine import embed_chunks
+from backend.core.doc_processing_unit.embedding_engine import embed_chunks
 from backend.utils.config import PROCESSED_DIR
-from backend.core.qdrant_manager import client, get_collection_name
+from backend.core.doc_processing_unit.qdrant_manager import client, get_collection_name
 
 # ⚠️ Update session ID before running
 session_id = "9d343441-b56b-4e3b-a823-6e66bb775f0a"

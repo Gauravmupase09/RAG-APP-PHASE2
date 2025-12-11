@@ -5,7 +5,7 @@ from fastapi import UploadFile
 
 from backend.utils.config import UPLOAD_DIR, PROCESSED_DIR
 from backend.utils.logger import logger
-from backend.core.qdrant_manager import delete_collection, get_collection_name
+from backend.core.doc_processing_unit.qdrant_manager import delete_collection, get_collection_name
 
 
 # ============================================================

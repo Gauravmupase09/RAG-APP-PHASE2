@@ -11,9 +11,12 @@ from backend.api.routes.list_docs import router as list_docs_router
 from backend.api.routes.reset_session import router as reset_router
 from backend.api.routes.query import router as query_router
 
+# from backend.api.routes.test_tool import router as test_tool_router
+
 # ✅ Core
-from backend.core.model_manager import get_embedding_model
-from backend.core.qdrant_manager import client as qdrant_client
+from backend.core.doc_processing_unit.model_manager import get_embedding_model
+from backend.core.doc_processing_unit.qdrant_manager import client as qdrant_client
+from backend.core.rag.resource_store import resource_store
 from backend.utils.logger import logger
 
 UPLOAD_DIR = "backend/data/uploads"
@@ -29,6 +32,11 @@ async def lifespan(app: FastAPI):
     # ✅ Load once at startup
     app.state.embedding_model = get_embedding_model()
     app.state.qdrant_client = qdrant_client
+
+
+    # 🔥 NEW: Copy references for tools (LangGraph)
+    resource_store.embedding_model = app.state.embedding_model
+    resource_store.qdrant_client = app.state.qdrant_client
 
     logger.info("✅ Startup complete — model loaded and Qdrant connected.")
     yield
@@ -48,7 +56,7 @@ async def lifespan(app: FastAPI):
 # ============================================================
 # 🚀 App Initialization
 # ============================================================
-app = FastAPI(title="Chat With Doc App", version="1.0", lifespan=lifespan)
+app = FastAPI(title="Chat With Doc App", version="2.0", lifespan=lifespan)
 
 
 # ============================================================
@@ -109,7 +117,7 @@ app.include_router(process_router, prefix="/api", tags=["Process"])
 app.include_router(list_docs_router, prefix="/api", tags=["Documents List"])
 app.include_router(reset_router, prefix="/api", tags=["Reset Session"])
 app.include_router(query_router, prefix="/api", tags=["Query"])
-
+# app.include_router(test_tool_router, prefix="/api", tags=["Tool TEST"])
 
 # ============================================================
 # 💓 Health Check

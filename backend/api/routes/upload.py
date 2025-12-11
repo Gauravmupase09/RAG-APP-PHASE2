@@ -22,15 +22,14 @@ async def upload_file(
     - Max 3 files allowed per session.
     """
 
-    # ✅ Determine if this is a new or existing session
-    is_new_session = session_id is None
-
-    # ✅ Create new session if not provided
-    if is_new_session:
+    # Treat empty string "" as no session provided
+    if not session_id:  # catches None, "", " "
         session_id = str(uuid.uuid4())
+        is_new_session = True
         create_session_folders(session_id)
         logger.info(f"🆕 Created new session: {session_id}")
     else:
+        is_new_session = False
         logger.info(f"📂 Using existing session: {session_id}")
 
     # ✅ Validate upload limit (max 3 files)

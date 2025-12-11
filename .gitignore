@@ -1,14 +1,16 @@
 # Python
 __pycache__/
 *.pyc
+*.pyo
+*.pyd
+*.pkl
 
 # Virtual env
 venv/
-
-# Environment
 .env
+.env.*
 
-# HuggingFace / Cache
+# FastAPI + LangChain Cache
 ~/.cache/
 cache/
 model_cache/
@@ -16,4 +18,13 @@ model_cache/
 # Local data
 backend/data/uploads/
 backend/data/processed/
-backend/data/vector_store/
+
+# Logs
+logs/
+*.log
+
+# IDE / Editor Files
+.vscode/
+.idea/
+*.swp
+*.swo

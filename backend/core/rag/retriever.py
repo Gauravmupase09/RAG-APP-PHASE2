@@ -1,9 +1,9 @@
 from typing import List, Dict
-from fastapi import Request
 from backend.utils.logger import logger
+from backend.core.rag.resource_store import resource_store
 
 
-def retrieve_top_k_chunks(request: Request, session_id: str, query: str, top_k: int = 5) -> List[Dict]:
+def retrieve_top_k_chunks(session_id: str, query: str, top_k: int = 5) -> List[Dict]:
     """
     Retrieve top K most relevant text chunks from Qdrant for this session.
     Returns structured output ready for citation handling and LLM context building.
@@ -11,9 +11,9 @@ def retrieve_top_k_chunks(request: Request, session_id: str, query: str, top_k: 
 
     logger.info(f"🔍 Retrieving for session={session_id} | top_k={top_k}")
 
-    # ✅ Access global resources (loaded in FastAPI lifespan)
-    client = request.app.state.qdrant_client
-    model = request.app.state.embedding_model
+    # 🧠 Access global model/client (FastAPI OR tool)
+    client = resource_store.qdrant_client
+    model = resource_store.embedding_model
 
     # ✅ Convert query → embedding vector
     query_vector = model.encode(query).tolist()
