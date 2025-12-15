@@ -54,10 +54,10 @@ assistant_node  →  decides → general OR rag_tool
 
 **finalize_node**
 - Combines:
- - session memory
- - user question
- - retrieved chunks (if any)
- - Produces final answer
+  - session memory
+  - user question
+  - retrieved chunks (if any)
+  - Produces final answer
 
 ---
 
@@ -213,7 +213,7 @@ Frontend:
 
 # 🔄 Agentic Workflow (Detailed)
 **1️⃣ User sends a query**
-The system forwards it to assistant_node.
+- The system forwards it to assistant_node.
 
 **2️⃣ assistant_node decides:**
 - If retrieval is needed → calls rag_tool
@@ -285,4 +285,5 @@ You can propose:
 # 📜 License
 
 MIT License
+
 
