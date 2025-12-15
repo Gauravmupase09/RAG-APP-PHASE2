@@ -57,8 +57,7 @@ assistant_node  →  decides → general OR rag_tool
  - session memory
  - user question
  - retrieved chunks (if any)
-
-- Produces final answer
+ - Produces final answer
 
 ---
 
@@ -286,3 +285,4 @@ You can propose:
 # 📜 License
 
 MIT License
+
