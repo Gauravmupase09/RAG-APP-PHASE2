@@ -63,7 +63,7 @@ assistant_node  →  decides → general OR rag_tool
 
 # 📁 Project Structure (Phase 2)
 ```bash
-APP/
+RAG-APP/
 │
 ├── backend/
 │   ├── api/
@@ -285,6 +285,7 @@ You can propose:
 # 📜 License
 
 MIT License
+
 
 
 
